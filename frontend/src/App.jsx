@@ -1,10 +1,16 @@
+import React from 'react';
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import UserLayout from './components/Layout/UserLayout';
+import Topbar from './components/Layout/Topbar';
 
-
-
-
-function App() {
+const App = () => {
   return (
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<UserLayout/>}/>
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
