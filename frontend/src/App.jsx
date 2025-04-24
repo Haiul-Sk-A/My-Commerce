@@ -1,7 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import UserLayout from './components/Layout/UserLayout';
-import Topbar from './components/Layout/Topbar';
 
 const App = () => {
   return (
