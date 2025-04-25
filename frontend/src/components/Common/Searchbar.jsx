@@ -14,7 +14,7 @@ const Searchbar = () => {
   };
 
   return (
-    <div className={`flex items-center justify-center w-full transition-all duration-300 ${isOpen ? "fixed inset-0 bg-white h-24 z-50 shadow-lg" : "relative w-auto"}`}>
+    <div className={`flex items-center justify-center w-full transition-all duration-300 ${isOpen ? "fixed inset-0 bg-white h-15 z-50" : "relative w-auto"}`}>
       {isOpen ? (
         <form
           className="relative flex items-center justify-center w-full"
