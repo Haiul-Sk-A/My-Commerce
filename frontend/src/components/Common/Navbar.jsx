@@ -6,7 +6,7 @@ import Searchbar from './Searchbar';
 const Navbar = () => {
   return (
     <>
-    <nav className="conatainer mx-auto flex items-center justify-between py-2 px-6">
+    <nav className="conatainer mx-auto flex items-center justify-between py-4 px-6">
         {/*Left - Logo*/}
         <div>
             <Link to="/" className="text-2xl font-medium">
