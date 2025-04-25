@@ -30,7 +30,7 @@ const Searchbar = () => {
               placeholder="Search"
               value={searchTerm}
               onChange={handleInputChange}
-              className="bg-gray-100 px-4 py-2 pr-12 rounded-lg focus:outline-none w-full placeholder-gray-500"
+              className="bg-gray-100 px-4 py-2 pr-12 rounded-lg focus:outline-orange-500 outline-2 outline-orange-300 w-full placeholder-gray-500 "
             />
             <button
               type="submit"
