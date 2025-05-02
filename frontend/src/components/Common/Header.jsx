@@ -4,9 +4,9 @@ import Navbar from './Navbar.jsx'
 
 const Header = () => {
   return (
-    <header className='border-b border-gray-200'>
+    <header >
       {<Topbar/>}
-      {<Navbar/>}
+      {<Navbar className='border-b border-gray-200'/>}      
     </header>
   )
 }

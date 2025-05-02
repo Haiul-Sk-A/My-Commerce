@@ -5,7 +5,7 @@ import { ImTwitter } from "react-icons/im";
 
 const Topbar = () => {
   return (
-    <div className="bg-[#ea2e0e] text-white">
+    <div className="fixed top-0 w-full bg-[#ea2e0e] text-white z-50">
       <div className="container mx-auto flex justify-between items-center py-3 px-1">
         <div className="hidden md:flex items-center space-x-5">
           <a href="#" className="hover:text-gray-300">
