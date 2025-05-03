@@ -17,7 +17,7 @@ const GenderCollectionSection = () => {
       />
 
       {/* Overlay Box */}
-      <div className="absolute bottom-2 left-2 bg-white bg-opacity-90 p-2 rounded-md shadow-md w-[148px]">
+      <div className="absolute bottom-2 left-2 bg-white bg-opacity-90 p-2  shadow-md w-[148px]">
         <h2 className="text-sm text-gray-900">Women's Collection</h2>
         <Link
           to="/collections/all?gender=women"
@@ -38,7 +38,7 @@ const GenderCollectionSection = () => {
       />
 
       {/* Overlay Box */}
-      <div className="absolute bottom-2 left-2 bg-white bg-opacity-90 p-2 rounded-md shadow-md w-[148px]">
+      <div className="absolute bottom-2 left-2 bg-white bg-opacity-90 p-2  shadow-md w-[148px]">
         <h2 className="text-sm text-gray-900">Men's Collection</h2>
         <Link
           to="/collections/all?gender=men"
