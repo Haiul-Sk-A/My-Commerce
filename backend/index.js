@@ -1,19 +1,14 @@
-const express = require('express');
+import express from 'express';
+import connectDB from './Database/db.js';
+
+connectDB();
+const PORT = 3000
 const app = express();
-const mysqlPool = require('./database/dataBase')
-
-const Port = 3000;
-
-app.use(express.json());
 
 app.get('/',(req,res)=>{
-    res.send('Hello,Backend!')
+    res.send("Hello World");
 });
 
-app.get('/test',(req,res)=>{
-    res.status(200).send("Node js Mysql App")
+app.listen(PORT,()=>{
+    console.log(`Server runnning:http://localhost:${PORT}`)
 });
-
-app.listen(Port,() =>{
-    console.log(`Server Running https://localhost:${Port}`)
-})

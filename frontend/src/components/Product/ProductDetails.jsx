@@ -23,6 +23,10 @@ const selectProduct = {
 
 const ProductDetails = () => {
   const [mainImage, setMainImage] = useState("");
+  const [selectedSize,setSelectedSize] = useState("");
+  const [selectedColor,setSelectedColor] = useState("");
+  const [Quantity,setQuantity]=useState(1);
+  const [isButtonDisable,setIsButtonDisable]=useState(false);
 
   useEffect(() => {
     if (selectProduct?.images?.length > 0) {
@@ -64,12 +68,12 @@ const ProductDetails = () => {
               {selectProduct.images.map((image, index) => (
                 <img
                   key={index}
-                  src={image.url} // Added the src attribute to display the image
+                  src={image.url} 
                   alt={image.altText || `Thumbnail ${index}`}
                   className={`w-20 h-20 object-cover rounded-lg cursor-pointer border ${
                     mainImage === image.url ? "border-black" : "border-gray-300"
-                  }`} // Highlight the selected thumbnail
-                  onClick={() => setMainImage(image.url)} // Update the main image when clicked
+                  }`} 
+                  onClick={() => setMainImage(image.url)} 
                 />
               ))}
             </div>

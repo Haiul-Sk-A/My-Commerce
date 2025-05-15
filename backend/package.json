@@ -1,18 +1,19 @@
 {
-  "name": "E_Commerce",
+  "name": "my_commerce",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Haiul Sk",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "mongodb": "^6.16.0",
     "nodemon": "^3.1.10"
   }
 }
