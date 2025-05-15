@@ -1,10 +1,12 @@
 import { MongoClient } from 'mongodb';
+import dotenv from 'dotenv';
+dotenv.config();
 
-const mongoUrl = 'mongodb+srv://haiulsk873:haiul873@cluster0.5ciqgtw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const mongoUrl = process.env.Mongo_Url;
 
 const connectDB = async () => {
   try {
-    const client = new MongoClient(mongoUrl); // no options needed
+    const client = new MongoClient(mongoUrl); 
     await client.connect();
 
     console.log('MongoDB connected successfully');
