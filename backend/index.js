@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config()
 
 connectDB();
-// const PORT = process.env.PORT;
+const PORT = process.env.PORT;
 
 const app = express()
 
@@ -14,6 +14,9 @@ app.get('/',(req,res)=>{
 });
 
 // app.use("/api",route)
+if (!PORT) {
+  throw new Error('❌ process.env.PORT is not set. Render sets this automatically.');
+}
 
 app.listen(PORT,()=>{
     console.log(`Server runnning:http://localhost:${PORT}`)
