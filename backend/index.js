@@ -18,6 +18,6 @@ if (!PORT) {
   throw new Error('❌ process.env.PORT is not set. Render sets this automatically.');
 }
 
-app.listen(PORT,()=>{
+app.listen(PORT,'0.0.0.0',()=>{
     console.log(`Server runnning:http://localhost:${PORT}`)
 });
