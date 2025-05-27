@@ -50,8 +50,6 @@ const GenderCollectionSection = () => {
     </div>
   </div>
 </section>
-
-  )
-}
+)}
 
 export default GenderCollectionSection;
