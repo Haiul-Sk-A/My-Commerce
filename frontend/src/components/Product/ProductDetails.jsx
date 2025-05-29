@@ -21,12 +21,14 @@ const selectProduct = {
   ],
 };
 
-const ProductDetails = () => {
+
+const ProductDetails = ({ onAddToCart }) => {
   const [mainImage, setMainImage] = useState("");
-  const [selectedSize,setSelectedSize] = useState("");
-  const [selectedColor,setSelectedColor] = useState("");
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(null);
   const [Quantity,setQuantity]=useState(1);
-  const [isButtonDisable,setIsButtonDisable]=useState(false);
+  const [cartItems, setCartItems] = useState([]);
+  // const [isButtonDisable,setIsButtonDisable]=useState(false);
 
   useEffect(() => {
     if (selectProduct?.images?.length > 0) {
@@ -39,17 +41,20 @@ const ProductDetails = () => {
     if(action === "minus" && Quantity >1) setQuantity((prev) => prev-1)
   }
 
-  const handleAddToCart = () =>{
-    if(!selectedColor){
-      alert("Please select the color.")
-      return;
-    }
+const handleAddToCart = () => {
+  console.log("clicked add to cart")
+  const cartItem = {
+    name: selectProduct.name,
+    price: selectProduct.price,
+    color: selectedColor,
+    size: selectedSize,
+    quantity: Quantity,
+    image: mainImage,
+  };
 
-    if(!selectedSize){
-      alert("Please select a size.")
-    }
-  }
-
+  onAddToCart(cartItem); // Send item to parent
+  alert("Added to cart!");
+};
   return (
     <div className="p-6">
       <div className="flex flex-col mx-auto bg-white p-8 rounded-lg">
@@ -146,23 +151,25 @@ const ProductDetails = () => {
               </div>
             </div>
             <button onClick={handleAddToCart}
-              disabled={!selectedColor || !selectedSize}
+              // disabled={!selectedColor || !selectedSize}
               className={`py-2 px-6 rounded w-full mb-8 text-white ${
-                !selectedColor || !selectedSize ? "bg-black cursor-not-allowed" : "bg-black"
+                !selectedColor || !selectedSize ? "bg-black cursor-pointer" : "bg-black"
               }`}>
               Add To Cart
             </button>
             <div className="text-gray-700">
               <h3 className="text-xl font-bold">Characteristics:</h3>
               <table>
-                <tr>
-                  <td className="py-1">Brand</td>
-                  <td className="py-1">{selectProduct.brand}</td>
-                </tr>
-                <tr>
-                  <td className="py-1">Material</td>
-                  <td className="py-1">{selectProduct.material}</td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <td className="py-1">Brand</td>
+                    <td className="py-1">{selectProduct.brand}</td>
+                  </tr>
+                  <tr>
+                    <td className="py-1">Material</td>
+                    <td className="py-1">{selectProduct.material}</td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>

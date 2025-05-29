@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaSearch } from 'react-icons/fa'
 
-const CartDrawer = () => {
+const CartDrawer = ({ cartItems }) => {
   
   return(
   <div className='bg-blue-100 min-h-screen '>
@@ -39,40 +39,48 @@ const CartDrawer = () => {
       <button className='text-blue-500 font-medium text-sm cursor-pointer'>Change</button>
     </div>
     
-    <div className='md:w-2/3 h-133 bg-white rounded-md mt-2 shadow p-4'>
-      <div className=' p-2 border-b'>
-      <div className='flex  mt-1 px-5'>
-        <img 
-          src='Kurta.webp'
-          alt='Kurta Pant Set' 
-          className='w-20 h-20 object-contain '
-        />
-        <div className='flex flex-1 justify-between items-center'>
-          <div>
-            <h2 className='text-lg font-medium text-gray-800'>Women Cotton Blend Kurta Pant Set</h2>
-            <p className='text-sm text-gray-500'>Size: M</p>
-            <p className='font-medium'><span className='line-through text-sm text-gray-800'>₹1499</span> ₹ 456 <span className='text-sm ml-5 text-green-700'>75% Off1 offer applied</span></p>
-            <p className='text-sm text-red-600 mt-1 font-semibold'>Out Of Stock</p>
+    <div className="md:w-2/3 bg-white rounded-md mt-2 shadow p-4 relative h-130">
+  {cartItems.length === 0 ? (
+    <p className="text-gray-600 text-center p-4">Your cart is empty</p>
+  ) : (
+    <div className="space-y-4 mb-24">
+      {cartItems.map((item, index) => (
+        <div key={index} className="flex px-5 border-b pb-4">
+          <img
+            src={item.image}
+            alt={item.name}
+            className="w-20 h-20 object-contain"
+          />
+          <div className="flex flex-1 justify-between items-center ml-4">
+            <div>
+              <h2 className="text-lg font-medium text-gray-800">{item.name}</h2>
+              <p className="text-sm text-gray-500">Size: {item.size}</p>
+              <p className="text-sm text-gray-500">Color: {item.color}</p>
+              <p className="font-medium">
+                ₹ {item.price} × {item.quantity}
+              </p>
+            </div>
+            <button className="text-blue-500 font-medium text-sm cursor-pointer">
+              Remove
+            </button>
           </div>
-          <button className='text-blue-500 font-medium text-sm cursor-pointer'>Remove</button>
         </div>
-      </div>
-      </div>
-
-      <div className='relative top-80'>
-        <div className='absolute top-0 left-0 right-0 h-[2px] shadow-[0_-2px_4px_rgba(128,128,128,0.3)] z-10'></div>
-        <div className='bg-white h-16 flex justify-end items-center px-4'>
-          <button className='text-white  bg-[#fb641b] border-black h-9 px-6 cursor-pointer '>
-            PLACE ORDER
-          </button>
-        </div>
-      </div>
+      ))}
     </div>
+  )}
+
+  {/* Sticky footer inside the container */}
+  <div className="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-md h-16 flex justify-end items-center px-4">
+    <button className="text-white bg-[#fb641b]  h-9 px-6 rounded cursor-pointer">
+      PLACE ORDER
+    </button>
+  </div>
+</div>
   </div>
 
   <div className='absolute top-30 left-275'>
 
-  <div className="w-100 mx-auto p-6 bg-white shadow-lg">
+  <div className=" fixed w-100 mx-auto p-6 bg-white shadow-lg">
 <h2 className="text-xl font-semibold mb-4 border-b">PRICE DETAILS</h2>
 
 <div className="space-y-3 text-sm text-gray-700">
