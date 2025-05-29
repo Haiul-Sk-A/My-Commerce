@@ -34,6 +34,22 @@ const ProductDetails = () => {
     }
   }, []);
 
+  const handleQuantityChange =(action) =>{
+    if(action === "plus") setQuantity ((prev) => prev+1);
+    if(action === "minus" && Quantity >1) setQuantity((prev) => prev-1)
+  }
+
+  const handleAddToCart = () =>{
+    if(!selectedColor){
+      alert("Please select the color.")
+      return;
+    }
+
+    if(!selectedSize){
+      alert("Please select a size.")
+    }
+  }
+
   return (
     <div className="p-6">
       <div className="flex flex-col mx-auto bg-white p-8 rounded-lg">
@@ -96,7 +112,8 @@ const ProductDetails = () => {
                 {selectProduct.colors.map((color) => (
                   <button
                     key={color}
-                    className="w-8 h-8 rounded-full border"
+                    onClick={() =>setSelectedColor(color)}
+                    className={`w-8 h-8 rounded-full cursor-pointer ${selectedColor === color ? "border-3 border-black" : "border border-gray-300"}`}
                     style={{ background: color.toLowerCase() }}
                   ></button>
                 ))}
@@ -108,7 +125,8 @@ const ProductDetails = () => {
                 {selectProduct.sizes.map((size) => (
                   <button
                     key={size}
-                    className="px-4 py-2 rounded border"
+                    onClick={() =>setSelectedSize(size)}
+                    className={`px-4 py-2 rounded border ${selectedSize === size ? "bg-black text-white" :""}`}
                   >
                     {size}
                   </button>
@@ -118,16 +136,20 @@ const ProductDetails = () => {
             <div className="mb-6">
               <p className="text-gray-700">Quantity:</p>
               <div className="flex items-center space-x-4 mt-2">
-                <button className="px-2 py-1 bg-gray-200 rounded text-lg">
+                <button onClick={() => handleQuantityChange ('minus')} className="px-2 py-1 bg-gray-200 text-black hover:bg-black hover:text-white text-lg rounded transition-colors duration-200">
                   -
                 </button>
-                <span className="text-lg">1</span>
-                <button className="px-2 py-1 bg-gray-200 rounded text-lg">
+                <span className="text-lg">{Quantity}</span>
+                <button onClick={() => handleQuantityChange ('plus')} className="px-2 py-1 bg-gray-200 text-black hover:bg-black hover:text-white text-lg rounded transition-colors duration-200">
                   +
                 </button>
               </div>
             </div>
-            <button className="bg-black text-white py-2 px-6 rounded w-full mb-8">
+            <button onClick={handleAddToCart}
+              disabled={!selectedColor || !selectedSize}
+              className={`py-2 px-6 rounded w-full mb-8 text-white ${
+                !selectedColor || !selectedSize ? "bg-black cursor-not-allowed" : "bg-black"
+              }`}>
               Add To Cart
             </button>
             <div className="text-gray-700">

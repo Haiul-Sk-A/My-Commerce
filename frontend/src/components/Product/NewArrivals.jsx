@@ -66,7 +66,7 @@ const NewArrivals = () => {
       </div>
 
       <div className="w-full overflow-x-auto px-5 pb-5 scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none]" ref={scrollRef}>
-  <div className="flex space-x-6 w-max">
+    <div className="flex space-x-6 w-max">
     {newArrivals.map((product) => (
       <div key={product._id} className="w-64 shadow-lg rounded-lg overflow-hidden relative bg-white">
         <img
@@ -84,9 +84,7 @@ const NewArrivals = () => {
     ))}
   </div>
 </div>
-
-    </section>
-  );
-};
+</section>
+)};
 
 export default NewArrivals;

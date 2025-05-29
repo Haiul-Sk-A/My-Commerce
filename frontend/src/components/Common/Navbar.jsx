@@ -48,8 +48,7 @@ const Navbar = () => {
 
             <button className="md:hidden">
                 <HiBars3BottomRight className='h-6 w-6 text-gray-700'/>
-            </button>
-            
+            </button>           
         </div>
     </nav>
     </>
