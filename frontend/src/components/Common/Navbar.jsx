@@ -37,10 +37,11 @@ const Navbar = () => {
             <Link to="/profile">
             <HiOutlineUser className='h-6 w-6 text-gray-700'/>
             </Link>
-            <button className='relative hover:text-black'>
+
+            <Link to="/cart" className='relative hover:text-black'>
                 <HiOutlineShoppingBag className='h-6 w-6 text-gray-700'/>
                 <span className="absolute top-0 left-5 bg-[#ea2e0e] text-white text-xs rounded-full px-1 py-0.5">4</span>
-            </button>
+            </Link>
 
             <div className='overflow-hidden'>
             <Searchbar/>

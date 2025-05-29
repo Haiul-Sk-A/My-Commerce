@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import UserLayout from './components/Layout/UserLayout';
 import Home from './pages/Home';
-// import CartDrawer from './components/Layout/CartDrawer'; 
+import CartDrawer from './components/Layout/CartDrawer'; 
 
 
 const App = () => {
@@ -10,9 +10,9 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<UserLayout />}>
-        {/* <Route path="/Cart" element={<CartDrawer />} /> */}
-        <Route index element={<Home />} />
+        <Route index element={<Home />} />        
         </Route>
+        <Route path="/Cart" element={<CartDrawer />} />
       </Routes>
     </BrowserRouter>
   );

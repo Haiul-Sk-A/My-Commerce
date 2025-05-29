@@ -4,7 +4,7 @@ import { FaSearch } from 'react-icons/fa'
 const CartDrawer = () => {
   
   return(
-  <div className='bg-blue-100 min-h-screen'>
+  <div className='bg-blue-100 min-h-screen '>
   <div className='fixed w-full top-0 bg-[#ea2e0e] flex items-center justify-between px-6 py-3'>
     <div className='flex items-center hidden sm:block'>
       <div className='flex items-center text-white text-2xl'>
@@ -129,7 +129,6 @@ const CartDrawer = () => {
 </div>
   </div>
 </div>
-)
-}
+)}
 
 export default CartDrawer
