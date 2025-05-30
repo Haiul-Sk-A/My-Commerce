@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { CartContext } from "../Cart/CartContext";
 
 const selectProduct = {
   name: "Stylish Jacket",
@@ -22,13 +23,12 @@ const selectProduct = {
 };
 
 
-const ProductDetails = ({ onAddToCart }) => {
+const ProductDetails = () => {
+  const { addToCart } = useContext(CartContext);
   const [mainImage, setMainImage] = useState("");
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [Quantity,setQuantity]=useState(1);
-  const [cartItems, setCartItems] = useState([]);
-  // const [isButtonDisable,setIsButtonDisable]=useState(false);
 
   useEffect(() => {
     if (selectProduct?.images?.length > 0) {
@@ -52,7 +52,7 @@ const handleAddToCart = () => {
     image: mainImage,
   };
 
-  onAddToCart(cartItem); // Send item to parent
+  addToCart(cartItem); 
   alert("Added to cart!");
 };
   return (

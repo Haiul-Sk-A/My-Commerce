@@ -1,10 +1,19 @@
-import React from 'react'
+import React,{useState,useContext} from 'react'
 import { FaSearch } from 'react-icons/fa'
+import { CartContext } from '../Cart/CartContext';
 
-const CartDrawer = ({ cartItems }) => {
+const CartDrawer = () => {
+
+  const { cartItems, handleRemoveFromCart } = useContext(CartContext);
+
+//   const [cartItem, setCartItems] = useState( [])
+
+//   const handleDelete = (indexToDelete) => {
+//   setCartItems(prevItems => prevItems.filter((_, index) => index !== indexToDelete));
+// };
   
   return(
-  <div className='bg-blue-100 min-h-screen '>
+  <div className='bg-blue-100 min-h-screen'>
   <div className='fixed w-full top-0 bg-[#ea2e0e] flex items-center justify-between px-6 py-3'>
     <div className='flex items-center hidden sm:block'>
       <div className='flex items-center text-white text-2xl'>
@@ -39,44 +48,45 @@ const CartDrawer = ({ cartItems }) => {
       <button className='text-blue-500 font-medium text-sm cursor-pointer'>Change</button>
     </div>
     
-    <div className="md:w-2/3 bg-white rounded-md mt-2 shadow p-4 relative h-130">
-  {cartItems.length === 0 ? (
-    <p className="text-gray-600 text-center p-4">Your cart is empty</p>
-  ) : (
-    <div className="space-y-4 mb-24">
-      {cartItems.map((item, index) => (
-        <div key={index} className="flex px-5 border-b pb-4">
-          <img
-            src={item.image}
-            alt={item.name}
-            className="w-20 h-20 object-contain"
-          />
-          <div className="flex flex-1 justify-between items-center ml-4">
-            <div>
-              <h2 className="text-lg font-medium text-gray-800">{item.name}</h2>
-              <p className="text-sm text-gray-500">Size: {item.size}</p>
-              <p className="text-sm text-gray-500">Color: {item.color}</p>
-              <p className="font-medium">
-                ₹ {item.price} × {item.quantity}
-              </p>
+<div className="md:w-2/3 bg-white rounded-md mt-2 shadow p-4 h-[530px] flex flex-col relative">
+  <div className="flex-1 overflow-y-auto pr-2">
+    {cartItems.length === 0 ? (
+      <p className="text-gray-600 text-center p-4">Your cart is empty</p>
+    ) : (
+      <div className="space-y-4">
+        {cartItems.map((item, index) => (
+          <div key={index} className="flex px-5 border-b pb-4">
+            <img
+              src={item.image}
+              alt={item.name}
+              className="w-20 h-20 object-contain"
+            />
+            <div className="flex flex-1 justify-between items-center ml-4">
+              <div>
+                <h2 className="text-lg font-medium text-gray-800">{item.name}</h2>
+                <p className="text-sm text-gray-500">Size: {item.size}</p>
+                <p className="text-sm text-gray-500">Color: {item.color}</p>
+                <p className="font-medium">₹ {item.price} × {item.quantity}</p>
+              </div>
+              <button onClick={() => handleRemoveFromCart(index)} className="text-blue-500 font-medium text-sm cursor-pointer">
+                Remove
+              </button>
             </div>
-            <button className="text-blue-500 font-medium text-sm cursor-pointer">
-              Remove
-            </button>
           </div>
-        </div>
-      ))}
-    </div>
-  )}
+        ))}
+      </div>
+    )}
+  </div>
 
-  {/* Sticky footer inside the container */}
-  <div className="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-md h-16 flex justify-end items-center px-4">
-    <button className="text-white bg-[#fb641b]  h-9 px-6 rounded cursor-pointer">
+  {/* Sticky footer inside cart box */}
+  <div className="border-t border-gray-200 shadow-inner h-16 flex justify-end items-center px-4 mt-4">
+    <button className="text-white bg-[#fb641b] border border-black h-9 px-6 rounded cursor-pointer">
       PLACE ORDER
     </button>
   </div>
 </div>
-  </div>
+</div>
+
 
   <div className='absolute top-30 left-275'>
 
