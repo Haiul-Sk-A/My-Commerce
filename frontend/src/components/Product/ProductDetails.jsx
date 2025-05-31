@@ -55,6 +55,8 @@ const handleAddToCart = () => {
   addToCart(cartItem); 
   alert("Added to cart!");
 };
+
+
   return (
     <div className="p-6">
       <div className="flex flex-col mx-auto bg-white p-8 rounded-lg">
