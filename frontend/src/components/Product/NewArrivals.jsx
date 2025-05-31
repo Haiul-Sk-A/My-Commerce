@@ -47,7 +47,7 @@ const NewArrivals = () => {
           Discover the style straight off the runway, freshly added to keep your wardrobe on the cutting edge of fashion.
         </p>
 
-        <div className="absolute right-4 bottom-[-30px] flex space-x-2">
+        <div className="absolute right-0 bottom-[-30px] flex space-x-2">
           <button
             onClick={() => scroll('left')}
             className="p-2 rounded text-black shadow border-2 border-transparent cursor-pointer hover:border-black"
