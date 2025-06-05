@@ -34,9 +34,15 @@ const Navbar = () => {
 
         {/*Right Icons*/}
         <div className='flex items-center space-x-4'>
-            <Link to="/profile">
-            <HiOutlineUser className='h-6 w-6 text-gray-700'/>
-            </Link>
+            <div className='relative group'>
+                <Link>
+                    <HiOutlineUser className='h-6 w-6 text-gray-700'/>
+                </Link>
+                <div className='absolute left-1/2 -translate-x-1/2 mt-2 w-24 bg-white text-gray-700 border border-gray-200 shadow-lg rounded-sm px-2 py-1 text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200'>
+                    <li className='list-none p-1 text-sm text-black cursor-pointer hover:bg-gray-400 hover:text-white'><Link to="/signIn">Sign Up</Link></li>
+                    <li className='list-none p-1 text-sm text-black cursor-pointer hover:bg-gray-400 hover:text-white'>Sign Out</li>
+                </div>
+            </div>
 
             <Link to="/cart" className='relative hover:text-black'>
                 <HiOutlineShoppingBag className='h-6 w-6 text-gray-700'/>
@@ -54,6 +60,7 @@ const Navbar = () => {
     </nav>
     </>
   )
-}
+};
+
 
 export default Navbar

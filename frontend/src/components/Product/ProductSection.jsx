@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiChevronRight } from "react-icons/fi";
+import { Link } from 'react-router-dom';
 
 const products = [
   {
@@ -33,28 +34,31 @@ const ProductSection = ({ title }) => (
     <h5 className="font-semibold text-lg sm:text-xl mb-4 flex items-center justify-between">
       {title} <FiChevronRight className="text-xl sm:text-2xl" />
     </h5>
-    <div className='grid grid-cols-2 sm:grid-cols-2 gap-2'>
+    <div className='grid grid-cols-2 md:grid-cols-2 gap-2'>
       {products.map((product, index) => (
-        <div
-          key={index}
-          className="gap-2 p-2 rounded-sm hover:shadow-md transition w-full"
-        >
-          <img
-            src={product.images[0]?.url}
-            alt={product.images[0]?.altText || product.name}
-            className="w-full h-40 object-cover rounded"
-          />
-          <p className="font-semibold text-sm p-1 text-gray-700 truncate" title={product.name}>
-            {product.name}
-          </p>
-          <p className="p-1 text-gray-800 font-medium">
-            ₹{product.price}
-            <span className="line-through text-gray-500 text-sm ml-2">
-              ₹{product.orginalPrice}
-            </span>
-          </p>
-        </div>
-      ))}
+  <Link
+    key={index}
+    to={`/product/${encodeURIComponent(product.name)}`}
+    state={{ product }}
+    className="gap-2 p-2 rounded-sm hover:shadow-md transition w-full"
+  >
+    <img
+      src={product.images[0]?.url}
+      alt={product.images[0]?.altText || product.name}
+      className="w-full h-40 object-cover rounded"
+    />
+    <p className="font-semibold text-sm p-1 text-gray-700 truncate" title={product.name}>
+      {product.name}
+    </p>
+    <p className="p-1 text-gray-800 font-medium">
+      ₹{product.price}
+      <span className="line-through text-gray-500 text-sm ml-2">
+        ₹{product.orginalPrice}
+      </span>
+    </p>
+  </Link>
+))}
+
     </div>
   </div>
 );
