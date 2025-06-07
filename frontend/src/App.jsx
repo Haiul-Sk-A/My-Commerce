@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import CartDrawer from './components/Layout/CartDrawer';
 import Sigin from './components/Common/Sigin';
 import ProductDetails from './components/Product/ProductDetails';
+import Payment from './components/Common/Payment';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path='/product/:name' element={<ProductDetails />} />
           <Route path='/cart' element={<CartDrawer />} />
           <Route path='/signIn' element={<Sigin />} />
+          <Route path='/payment' element={<Payment />} />
         </Routes>
       </BrowserRouter>
     </CartProvider>

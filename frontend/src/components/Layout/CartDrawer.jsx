@@ -1,10 +1,17 @@
 import React,{useState,useContext} from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { CartContext } from '../Cart/CartContext';
+import {useNavigate} from 'react-router-dom';
 
 const CartDrawer = () => {
 
   const { cartItems, handleRemoveFromCart } = useContext(CartContext);
+
+  const navigate = useNavigate();
+
+const handlePlaceOrder = () => {
+  navigate('/payment');
+};
 
 //   const [cartItem, setCartItems] = useState( [])
 
@@ -80,7 +87,7 @@ const CartDrawer = () => {
 
   {/* Sticky footer inside cart box */}
   <div className="border-t border-gray-200 shadow-inner h-16 flex justify-end items-center px-4 mt-4">
-    <button className="text-white bg-[#fb641b] border border-black h-9 px-6 rounded cursor-pointer">
+    <button onClick={handlePlaceOrder} className="text-white bg-[#fb641b] border border-black h-9 px-6 rounded cursor-pointer">
       PLACE ORDER
     </button>
   </div>
