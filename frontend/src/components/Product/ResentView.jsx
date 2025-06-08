@@ -25,6 +25,7 @@ const products = [
 ];
 
 const RecentView = () => {
+    
   const scrollRef = useRef(null);
   const [scrollLeft, setScrollLeft] = useState(false);
   const [scrollRight, setScrollRight] = useState(true);
