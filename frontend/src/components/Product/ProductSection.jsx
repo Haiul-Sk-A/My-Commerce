@@ -36,43 +36,45 @@ const ProductSection = ({ title }) => (
     </h5>
     <div className='grid grid-cols-2 md:grid-cols-2 gap-2'>
       {products.map((product, index) => (
-  <Link
-    key={index}
-    to={`/product/${encodeURIComponent(product.name)}`}
-    state={{ product }}
-    className="gap-2 p-2 rounded-sm hover:shadow-md transition w-full"
-  >
-    <img
-      src={product.images[0]?.url}
-      alt={product.images[0]?.altText || product.name}
-      className="w-full h-40 object-cover rounded"
-    />
-    <p className="font-semibold text-sm p-1 text-gray-700 truncate" title={product.name}>
-      {product.name}
-    </p>
-    <p className="p-1 text-gray-800 font-medium">
-      ₹{product.price}
-      <span className="line-through text-gray-500 text-sm ml-2">
-        ₹{product.orginalPrice}
-      </span>
-    </p>
-  </Link>
-))}
-
+        <Link
+          key={index}
+          to={`/product/${encodeURIComponent(product.name)}`}
+          state={{ product }}
+          className="gap-2 p-2 rounded-sm hover:shadow-md transition w-full"
+        >
+          <img
+            src={product.images[0]?.url}
+            alt={product.images[0]?.altText || product.name}
+            className="w-full h-40 object-cover rounded"
+          />
+          <p className="font-semibold text-sm p-1 text-gray-700 truncate" title={product.name}>
+            {product.name}
+          </p>
+          <p className="p-1 text-gray-800 font-medium">
+            ₹{product.price}
+            <span className="line-through text-gray-500 text-sm ml-2">
+              ₹{product.orginalPrice}
+            </span>
+          </p>
+        </Link>
+      ))}
     </div>
   </div>
 );
 
 const NewProduct = () => {
   return (
-    <div className="p-4 sm:p-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <ProductSection title="Discounts for you" />
-        <ProductSection title="Recommended for you" />
-        <ProductSection title="Suggested Items" />
+    <>
+      <div className="p-4 sm:p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <ProductSection title="Discounts for you" />
+          <ProductSection title="Recommended for you" />
+          <ProductSection title="Suggested Items" />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
+
 
 export default NewProduct;

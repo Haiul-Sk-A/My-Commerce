@@ -6,7 +6,6 @@ import { CartContext } from '../Cart/CartContext';
 
 const Navbar = () => {
     const { cartItems } = useContext(CartContext);
-
   return (
     <>
     <nav className="fixed top-10 w-full bg-white mx-auto flex items-center justify-between py-4 px-6 z-50">

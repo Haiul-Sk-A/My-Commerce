@@ -4,6 +4,7 @@ import GenderCollectionSection from '../components/Product/GenderCollectionSecti
 import NewArrivals from '../components/Product/NewArrivals';
 import ProductDetails from '../components/Product/ProductDetails';
 import ProductSection from '../components/Product/ProductSection';
+import Product from '../components/Product/product';
 
 const Home = () => {
     return (
@@ -15,8 +16,8 @@ const Home = () => {
         {/*Best Selller*/}
         {/* <h2 className='text-3xl text-center font-bold mb-4'>Best Seller</h2> */}
         {/* <ProductDetails /> */}
-         <h2 className='text-3xl text-center font-bold mb-4'>Shop Now</h2>
-        <ProductSection/>
+        <h2 className='text-3xl text-center font-bold mb-4'>Shop Now</h2>
+        <Product/>
       </div>
     );
   };
