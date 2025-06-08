@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import{HiBars3BottomRight, HiOutlineShoppingBag, HiOutlineUser} from "react-icons/hi2"
 import Searchbar from './Searchbar';
+import { CartContext } from '../Cart/CartContext';
 
 const Navbar = () => {
+    const { cartItems } = useContext(CartContext);
+
   return (
     <>
     <nav className="fixed top-10 w-full bg-white mx-auto flex items-center justify-between py-4 px-6 z-50">
@@ -46,7 +49,9 @@ const Navbar = () => {
 
             <Link to="/cart" className='relative hover:text-black'>
                 <HiOutlineShoppingBag className='h-6 w-6 text-gray-700'/>
-                <span className="absolute top-0 left-5 bg-[#ea2e0e] text-white text-xs rounded-full px-1 py-0.5">4</span>
+                {cartItems.length >0 && (
+                    <span className="absolute top-0 left-5 bg-[#ea2e0e] text-white text-xs rounded-full px-1 py-0.5">{cartItems.length}</span>
+                )}
             </Link>
 
             <div className='overflow-hidden'>
