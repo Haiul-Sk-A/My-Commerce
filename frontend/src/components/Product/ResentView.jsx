@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { FaArrowRight } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const products = [
   {
@@ -83,8 +84,10 @@ const RecentView = () => {
           className="flex overflow-x-auto space-x-0 no-scrollbar"
         >
           {products.map((product, index) => (
-            <div
+            <Link
               key={index}
+              to={`/product/${encodeURIComponent(product.name)}`}
+              state={{ product }}
               className="flex-shrink-0 bg-white shadow-sm hover:shadow-md transition rounded-lg overflow-hidden border border-gray-200 text-sm w-[200px] mr-2 last:mr-0"
             >
               <img
@@ -98,7 +101,7 @@ const RecentView = () => {
                 <div className="text-xs text-gray-500 line-through">₹{product.orginalPrice}</div>
                 <div className="text-xs text-blue-600 font-medium mt-1">Limited Offer</div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
