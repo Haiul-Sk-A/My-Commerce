@@ -2,7 +2,7 @@ import React from 'react'
 import Hero from '../components/Layout/Hero'
 import GenderCollectionSection from '../components/Product/GenderCollectionSection';
 import NewArrivals from '../components/Product/NewArrivals';
-import Product from '../components/Product/product';
+import Product from '../components/Product/Product';
 
 const Home = () => {
     return (
