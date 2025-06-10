@@ -1,8 +1,8 @@
 import express from 'express';
-import signUp from '../Controllers/authController.js'; // Make sure .js is included if using ESM
+import signUp from '../controllers/authController.js'; 
 
 const Router = express.Router();
 
-Router.post("/signup", signUp);
+Router.post("/signup",signUp);
 
 export default Router;
