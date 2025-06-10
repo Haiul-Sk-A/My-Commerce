@@ -7,7 +7,7 @@ const singUp = async(req,res)=>{
     const {name,email,password} = req.body;
 
     try{
-        const existingUser = await User.findOne({email})
+        const existingUser = await user.findOne({email})
         
         if(existingUser){
             res.status(400).json({msg:"Email alredy exist"})
