@@ -1,6 +1,7 @@
 import express from 'express';
 import connectDB from './Database/db.js';
 // import route from './routes/userRoute.js'
+import authRoutes from './routes/authRoutes.js'
 import dotenv from 'dotenv';
 dotenv.config()
 
@@ -13,7 +14,9 @@ app.get('/',(req,res)=>{
     res.send("Hello World");
 });
 
-// app.use("/api",route)
+app.use(express.json());
+
+app.use('/api',authRoutes)
 
 app.listen(PORT,'0.0.0.0',()=>{
     console.log(`✅ Server running on http://0.0.0.0:${PORT}`)
