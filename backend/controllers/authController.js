@@ -1,6 +1,7 @@
 import User from '../models/user.js';  // Changed from 'user' to 'User' for naming consistency
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+import { json } from 'express';
 
 const createToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '3d' });
@@ -26,7 +27,6 @@ export const signUp = async (req, res) => {
         res.status(201).json({ user: newUser, token });
 
     } catch (err) {
-        console.error(err);
         res.status(500).json({ msg: "Server error" });
     }
 };
@@ -52,7 +52,10 @@ export const login = async (req, res) => {
         res.status(200).json({ user: existingUser, token });
 
     } catch (err) {
-        console.error(err);
         res.status(500).json({ msg: "Server error" });
     }
 };
+
+export const getProfile = async (req,res)=>{
+    res.status(200).json(req.user);
+}
