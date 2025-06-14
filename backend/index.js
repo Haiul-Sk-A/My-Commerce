@@ -7,7 +7,7 @@ import productRouter from './routes/productRoutes.js';
 dotenv.config()
 
 connectDB();
-const PORT = process.env.PORT ||8080;
+const PORT = process.env.PORT ;
 
 const app = express()
 
