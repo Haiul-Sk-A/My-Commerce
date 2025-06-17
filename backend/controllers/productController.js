@@ -1,6 +1,6 @@
-import Product from '../models/product.js';
+import product from '../models/product.js';
 
-export const product = async (req, res) => {
+export const Product = async (req, res) => {
     const { title, description, price, quantity } = req.body;
 
         if (!title || !description || !price || !quantity) {
@@ -8,7 +8,7 @@ export const product = async (req, res) => {
         }
 
     try {
-        const newProduct = new Product({
+        const newProduct = new product({
             title,
             description,
             price,
