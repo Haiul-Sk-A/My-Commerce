@@ -1,14 +1,14 @@
-import product from '../models/product';
+import Product from '../models/product.js';
 
 export const addProduct = async (req, res) => {
     const { title, description, price, quantity } = req.body;
 
-        if (!title || !description || !price || !quantity) {
-            return res.status(400).json({msg:"All fields are required"})
-        }
+    if (!title || !description || !price || !quantity) {
+        return res.status(400).json({ msg: "All fields are required" });
+    }
 
     try {
-        const newProduct = new product({
+        const newProduct = new Product({
             title,
             description,
             price,
