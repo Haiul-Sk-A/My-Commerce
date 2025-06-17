@@ -1,10 +1,9 @@
 import User from '../models/user.js'; 
 import jwt from 'jsonwebtoken';
-import otpStore from '../sendOtp/otpStore.js';
 import { sendOtpEmail } from '../sendOtp/sendOtp.js';
 
 const createToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '3d' });
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '3d' });
 };
 
 export const signUp = async (req, res) => {
@@ -44,6 +43,7 @@ try {
     return res.status(400).json({ msg: "Invalid or expired OTP" });
   }
 
+
   otpStore.delete(email);
 
   const newUser = new User({ email });
@@ -56,9 +56,9 @@ try {
 } catch (err) {
   res.status(500).json({ msg: "Server error" });
 }
-
 };
 
+const otpStore = new Map();
 
 export const login = async (req, res) => {
   const { email, otp } = req.body;
@@ -93,24 +93,29 @@ export const login = async (req, res) => {
 
     const token = createToken(existingUser._id);
 
-    res.status(200).json({ user: existingUser, token });
+    res.status(200).json({
+      msg: "User login successful",
+      user: existingUser,
+      token,
+    });
 
   } catch (err) {
+    console.error(err);
     res.status(500).json({ msg: "Server error" });
   }
 };
 
 
 export const getProfile = async (req,res)=>{
-    res.status(200).json(req.user);
+  res.status(200).json(req.user);
 }
 
 export const logout = async (req, res) => {
-    res.clearCookie('token', {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'strict'
-    });
+  res.clearCookie('token', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict'
+  });
 
-    res.status(200).json({ msg: "Logout successful" });
+  res.status(200).json({ msg: "Logout successful" });
 };
