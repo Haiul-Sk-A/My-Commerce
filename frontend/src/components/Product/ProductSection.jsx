@@ -32,8 +32,11 @@ const products = [
 const ProductSection = ({ title }) => (
   <div className='border-2 border-gray-300 p-4 rounded-sm'>
     <h5 className="font-semibold text-lg sm:text-xl mb-4 flex items-center justify-between">
-      {title} <FiChevronRight className="text-xl sm:text-2xl bg-blue-600 rounded-full text-white text-sm" />
-    </h5>
+        {title}
+        <Link to="/suggested">
+          <FiChevronRight className="text-xl sm:text-2xl bg-blue-600 rounded-full text-white text-sm cursor-pointer p-1" />
+        </Link>
+      </h5>
     <div className='grid grid-cols-2 md:grid-cols-2 gap-2'>
       {products.map((product, index) => (
         <Link
@@ -75,6 +78,4 @@ const NewProduct = () => {
     </>
   );
 };
-
-
 export default NewProduct;

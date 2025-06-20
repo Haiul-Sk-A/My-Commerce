@@ -7,6 +7,7 @@ import CartDrawer from './components/Layout/CartDrawer';
 import Sigin from './components/Common/Sigin';
 import ProductDetails from './components/Product/ProductDetails';
 import Payment from './components/Common/Payment';
+import SuggestedProductsPage from './components/Product/SuggestedProductsPage';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path='/cart' element={<CartDrawer />} />
           <Route path='/signIn' element={<Sigin />} />
           <Route path='/payment' element={<Payment />} />
+          <Route path="/suggested" element={<SuggestedProductsPage />} />
         </Routes>
       </BrowserRouter>
     </CartProvider>
