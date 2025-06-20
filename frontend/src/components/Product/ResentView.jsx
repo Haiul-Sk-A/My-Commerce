@@ -40,7 +40,7 @@ const ResentView = () => {
 
   return (
     <section className="py-12">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto px-4">
         <h2 className="text-3xl font-bold mb-6 text-center">Recent View</h2>
 
         <div className="relative w-full">
