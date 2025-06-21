@@ -84,7 +84,7 @@ const SuggestedProductsPage = () => {
   const suggested = allProducts.filter(p => p.category === "suggested");
 
   return (
-    <div className="p-6">
+  <div className="p-6">
   <h1 className="text-2xl font-bold mb-4 text-center p-5">Suggested Products</h1>
   <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
     {suggested.map((product, index) => (

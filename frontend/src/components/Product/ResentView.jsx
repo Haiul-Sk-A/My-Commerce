@@ -42,9 +42,7 @@ const ResentView = () => {
     <section className="py-12">
       <div className="mx-auto px-4">
         <h2 className="text-3xl font-bold mb-6 text-center">Recent View</h2>
-
         <div className="relative w-full">
-          {/* Left button */}
           <button
             onClick={() => scroll('left')}
             className="absolute left-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-white shadow-md border border-gray-200 hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed z-10"
@@ -53,7 +51,6 @@ const ResentView = () => {
             <FiChevronLeft className="text-2xl text-gray-700" />
           </button>
 
-          {/* Right button */}
           <button
             onClick={() => scroll('right')}
             className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-white shadow-md border border-gray-200 hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed z-10"
@@ -62,7 +59,6 @@ const ResentView = () => {
             <FiChevronRight className="text-2xl text-gray-700" />
           </button>
 
-          {/* Product list */}
           <div
             ref={scrollRef}
             className="w-full overflow-x-auto scroll-smooth scrollbar-hide"
@@ -92,7 +88,6 @@ const ResentView = () => {
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );
