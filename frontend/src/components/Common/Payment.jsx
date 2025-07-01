@@ -1,13 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { IoIosArrowDown } from "react-icons/io";
-import { CartContext } from '../Cart/CartContext'; 
+import { CartContext } from '../Cart/CartContext';
 
 const Payment = () => {
   const [showDetails, setShowDetails] = useState(false);
-  const [selectedAddressIndex, setSelectedAddressIndex] = useState(null); 
+  const [selectedAddressIndex, setSelectedAddressIndex] = useState(null);
   const [showOrderSummary, setShowOrderSummary] = useState(false);
 
-  const { cartItems } = useContext(CartContext); 
+  const { cartItems } = useContext(CartContext);
 
   const address = [
     {
@@ -50,9 +50,8 @@ const Payment = () => {
         <h1 className="text-xl text-white flex items-center gap-2">Delivery</h1>
         <IoIosArrowDown
           size={24}
-          className={`text-white transform transition-transform duration-300 ${
-            showDetails ? "rotate-180" : ""
-          }`}
+          className={`text-white transform transition-transform duration-300 ${showDetails ? "rotate-180" : ""
+            }`}
         />
       </div>
 
@@ -83,7 +82,7 @@ const Payment = () => {
                   className="h-10 w-28 text-white bg-orange-500 rounded hover:bg-orange-600"
                   onClick={() => setShowOrderSummary(true)}
                 >
-                 Delivery Here
+                  Delivery Here
                 </button>
               )}
             </div>
@@ -101,9 +100,8 @@ const Payment = () => {
         </h1>
         <IoIosArrowDown
           size={24}
-          className={`text-white transform transition-transform duration-300 ${
-            showOrderSummary ? "rotate-180" : ""
-          }`}
+          className={`text-white transform transition-transform duration-300 ${showOrderSummary ? "rotate-180" : ""
+            }`}
         />
       </div>
 
@@ -134,65 +132,65 @@ const Payment = () => {
         </div>
       )}
 
-      
-  <div className="fixed top-20 right-10 w-[320px] p-6 bg-white shadow-lg rounded-md z-10">
-    <h2 className="text-xl font-semibold mb-4 border-b pb-2">PRICE DETAILS</h2>
 
-    <div className="space-y-3 text-sm text-gray-700">
-      <div className="flex justify-between">
-        <span>Price ({cartItems.length} items)</span>
-        <span>₹{calculateTotal()}</span>
-      </div>
+      <div className="fixed top-20 right-10 w-[320px] p-6 bg-white shadow-lg rounded-md z-10">
+        <h2 className="text-xl font-semibold mb-4 border-b pb-2">PRICE DETAILS</h2>
 
-      <div className="flex justify-between">
-        <span>Discount</span>
-        <span className="text-green-600">- ₹12,564</span>
-      </div>
+        <div className="space-y-3 text-sm text-gray-700">
+          <div className="flex justify-between">
+            <span>Price ({cartItems.length} items)</span>
+            <span>₹{calculateTotal()}</span>
+          </div>
 
-      <div className="flex justify-between">
-        <span>Buy more &amp; save more</span>
-        <span className="text-green-600">- ₹119</span>
-      </div>
+          <div className="flex justify-between">
+            <span>Discount</span>
+            <span className="text-green-600">- ₹12,564</span>
+          </div>
 
-      <div className="flex justify-between">
-        <span>Coupons for you</span>
-        <span className="text-green-600">- ₹32</span>
-      </div>
+          <div className="flex justify-between">
+            <span>Buy more &amp; save more</span>
+            <span className="text-green-600">- ₹119</span>
+          </div>
 
-      <div className="flex justify-between">
-        <span>Secured Packaging Fee</span>
-        <span>₹59</span>
-      </div>
+          <div className="flex justify-between">
+            <span>Coupons for you</span>
+            <span className="text-green-600">- ₹32</span>
+          </div>
 
-      <div className="flex justify-between">
-        <span className="flex items-center gap-1">
-          Protect Promise Fee
-          <span className="text-gray-400 text-xs cursor-pointer">ⓘ</span>
-        </span>
-        <span>₹9</span>
-      </div>
+          <div className="flex justify-between">
+            <span>Secured Packaging Fee</span>
+            <span>₹59</span>
+          </div>
 
-      <div className="flex justify-between">
-        <span>Delivery Charges</span>
-        <div className="flex flex-col items-end">
-          <span className="line-through text-gray-400 text-xs">₹369</span>
-          <span>₹129</span>
+          <div className="flex justify-between">
+            <span className="flex items-center gap-1">
+              Protect Promise Fee
+              <span className="text-gray-400 text-xs cursor-pointer">ⓘ</span>
+            </span>
+            <span>₹9</span>
+          </div>
+
+          <div className="flex justify-between">
+            <span>Delivery Charges</span>
+            <div className="flex flex-col items-end">
+              <span className="line-through text-gray-400 text-xs">₹369</span>
+              <span>₹129</span>
+            </div>
+          </div>
+
+          <div className="border-t pt-2 flex justify-between font-semibold text-lg">
+            <span>Total Amount</span>
+            <span>₹17,165</span>
+          </div>
+
+          <div className="border-t pt-2 mt-4">
+            <p className="font-medium text-green-700">
+              You will save ₹12,518 on this order
+            </p>
+          </div>
         </div>
       </div>
-
-      <div className="border-t pt-2 flex justify-between font-semibold text-lg">
-        <span>Total Amount</span>
-        <span>₹17,165</span>
-      </div>
-
-      <div className="border-t pt-2 mt-4">
-        <p className="font-medium text-green-700">
-          You will save ₹12,518 on this order
-        </p>
-      </div>
     </div>
-  </div>
-  </div>
   );
 };
 

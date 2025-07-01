@@ -8,6 +8,7 @@ import Sigin from './components/Common/Sigin';
 import ProductDetails from './components/Product/ProductDetails';
 import Payment from './components/Common/Payment';
 import SuggestedProductsPage from './components/Product/SuggestedProductsPage';
+import VerifyOTP from './components/Common/VerifyOTP';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path='/signIn' element={<Sigin />} />
           <Route path='/payment' element={<Payment />} />
           <Route path="/suggested" element={<SuggestedProductsPage />} />
+          <Route path="/verify" element={<VerifyOTP/>} />
         </Routes>
       </BrowserRouter>
     </CartProvider>
