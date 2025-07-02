@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const SignIn = () => {
+const SignUp = () => {
   const [emailOrMobile, setEmailOrMobile] = useState('');
   const navigate = useNavigate();
 
   const handleRequestOTP = () => {
     if (emailOrMobile.trim() !== '') {
-      // simulate API call and redirect to OTP page
+      // Simulate API call and redirect
       navigate('/verify', { state: { emailOrMobile } });
     } else {
       alert('Please enter Email or Mobile Number');
@@ -21,9 +21,9 @@ const SignIn = () => {
         {/* Left Section */}
         <div className="bg-blue-600 text-white p-8 md:w-1/2 flex flex-col justify-between">
           <div>
-            <h1 className="text-3xl font-bold mb-4">Login</h1>
+            <h1 className="text-3xl font-bold mb-4">Sign Up</h1>
             <p className="text-lg mb-6">
-              Get access to your Orders, Wishlist and Recommendations
+              Create an account to access Orders, Wishlist, and more!
             </p>
           </div>
           <div className="flex justify-center">
@@ -73,8 +73,8 @@ const SignIn = () => {
           </button>
 
           <p className="text-center text-sm">
-            New to Flipkart?{" "}
-            <Link to="/signup" className="text-blue-600 font-medium">Create an account</Link>
+            Already have an account?{" "}
+            <Link to="/signin" className="text-blue-600 font-medium">Login here</Link>
           </p>
         </div>
       </div>
@@ -82,4 +82,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;
